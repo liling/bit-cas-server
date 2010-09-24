@@ -25,6 +25,10 @@ body {
   padding: 0 20px;
 }
 
+#content p {
+  font-size: 14px;
+}
+
 #column1 {
   width: 300px;
   float: left;
@@ -74,5 +78,13 @@ body {
 }
 
 #cas #sidebar p {
+  font-size: 14px;
+}
+
+.info, .errors, .success {
+  font-size: 14px;
+}
+
+input {
   font-size: 14px;
 }
