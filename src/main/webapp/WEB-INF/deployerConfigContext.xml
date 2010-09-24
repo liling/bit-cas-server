@@ -145,7 +145,8 @@
     <!-- <sec:user name="@@THIS SHOULD BE REPLACED@@" password="notused" authorities="ROLE_ADMIN" />-->
     
     <sec:user-service id="userDetailsService">
-        <sec:user name="battags" password="notused" authorities="ROLE_ADMIN" />
+        <sec:user name="6120103160" authorities="ROLE_ADMIN" />
+        <sec:user name="6120104690" authorities="ROLE_ADMIN" />
     </sec:user-service>
     
     <!-- 通过 LDAP 提供用户属性 -->
