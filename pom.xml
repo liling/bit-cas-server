@@ -21,6 +21,13 @@
     
     <dependencies>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
             <groupId>org.jasig.cas</groupId>
             <artifactId>cas-server-webapp</artifactId>
             <version>${cas.version}</version>
@@ -55,13 +62,6 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>3.5.0-CR-2</version>
-            <!--<exclusions>
-	      <exclusion>
-	  	<groupId>org.slf4j</groupId>
-		<artifactId>slf4j</artifactId>
-	      </exclusion>
-	    </exclusions>
-            -->
         </dependency>
 
         <dependency>
