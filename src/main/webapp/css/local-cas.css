@@ -1,0 +1,78 @@
+body {
+  min-width: 770px;
+  font-size: 12px;
+}
+
+#header {
+  background: none;
+  background-color: #9BC11B;
+  padding-top: 0;
+}
+
+#header h1#app-name {
+  background: none;
+  background-color: #9BC11B;
+  color: black;
+  font: 400 16px "微软雅黑","宋体",Arial,sans-serif;
+  margin: 0px auto;
+  text-align: center;
+  padding: 4px;
+}
+
+#content {
+  max-width: 770px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#column1 {
+  width: 300px;
+  float: left;
+  clear: none;
+}
+
+#column2 {
+  margin-left: 330px;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+#footer {
+  font-size: 12px;
+  max-width: 770px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#cas #login {
+  width: 100%;
+}
+
+#cas #login h2 {
+  font-size: 16px;
+  font-family: Georgia,"Times New Roman",serif;
+}
+
+#cas #login label {
+  font-size: 14px;
+  font-family: Georgia,"Times New Roman",serif;
+}
+
+#cas #login input[type=text], #cas #login input[type=password] {
+  font-size: 14px;
+  font-family: Georgia,"Times New Roman",serif;
+  width: 200px;
+  min-height: auto;
+  padding: 3px;
+}
+
+#cas #sidebar {
+  margin: 15px 10px;
+  width: 100%;
+  padding: 0;
+}
+
+#cas #sidebar p {
+  font-size: 14px;
+}
