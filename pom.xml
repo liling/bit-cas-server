@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.edu.bit.cas</groupId>
+    <artifactId>local-cas</artifactId>
+    <packaging>war</packaging>
+    <version>0.1</version>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warName>cas</warName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-server-webapp</artifactId>
+            <version>${cas.version}</version>
+            <type>war</type>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-server-support-generic</artifactId>
+            <version>${cas.version}</version>
+            <type>jar</type>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-server-support-ldap</artifactId>
+            <version>${cas.version}</version>
+            <type>jar</type>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>3.5.0-CR-2</version>
+            <!--<exclusions>
+	      <exclusion>
+	  	<groupId>org.slf4j</groupId>
+		<artifactId>slf4j</artifactId>
+	      </exclusion>
+	    </exclusions>
+            -->
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.13</version>
+        </dependency>
+    </dependencies>
+    
+    <properties>
+        <cas.version>3.4.2.1</cas.version>
+    </properties>
+    
+    <repositories>
+        <repository>
+            <id>ja-sig</id>
+            <url>http://oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>jboss</id>
+            <url>http://repository.jboss.org/maven2/</url>
+        </repository>
+    </repositories>
+</project>
