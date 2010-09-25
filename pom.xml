@@ -52,6 +52,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.jasig.cas</groupId>
+            <artifactId>cas-server-integration-memcached</artifactId>
+            <version>${cas.version}</version>
+            <type>jar</type>
+        </dependency>
+
+        <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
