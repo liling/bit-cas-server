@@ -126,6 +126,12 @@
                     <property name="filter" value="employeeNumber=%u,ou=people,dc=bit,dc=edu,dc=cn" />
                     <property name="contextSource" ref="contextSource" />
                 </bean>
+
+                <bean class="org.jasig.cas.adaptors.ldap.BindLdapAuthenticationHandler" >
+                    <property name="filter" value="mail=%u" />
+                    <property name="searchBase" value="ou=people,dc=bit,dc=edu,dc=cn" />
+                    <property name="contextSource" ref="contextSource" />
+                </bean>
             </list>
         </property>
     </bean>
