@@ -85,15 +85,21 @@
         +-->
         <property name="credentialsToPrincipalResolvers">
             <list>
-                <!--
-                 | UsernamePasswordCredentialsToPrincipalResolver supports the UsernamePasswordCredentials that we use for /login 
-                 | by default and produces SimplePrincipal instances conveying the username from the credentials.
-                 | 
-                 | If you've changed your LoginFormAction to use credentials other than UsernamePasswordCredentials then you will also
-                 | need to change this bean declaration (or add additional declarations) to declare a CredentialsToPrincipalResolver that supports the
-                 | Credentials you are using.
-                 +-->
-                <bean class="org.jasig.cas.authentication.principal.UsernamePasswordCredentialsToPrincipalResolver" />
+                <!-- 通过 LDAP 数据库检索目前登录的用户究竟是谁 -->
+                <bean class="org.jasig.cas.authentication.principal.CredentialsToLDAPAttributePrincipalResolver">
+                    <property name="credentialsToPrincipalResolver">
+                        <bean class="org.jasig.cas.authentication.principal.UsernamePasswordCredentialsToPrincipalResolver" />
+                    </property>
+                    <!-- 允许用户输入工号或者电子邮件 -->
+                    <property name="filter" value="(|(employeeNumber=%u)(mail=%u))" />
+                    <property name="principalAttributeName" value="employeeNumber" />
+                    <property name="searchBase" value="ou=people,dc=bit,dc=edu,dc=cn" />
+                    <property name="contextSource" ref="contextSource" />
+                    <property name="attributeRepository">
+                        <ref bean="attributeRepository" />
+                    </property>
+                </bean>
+
                 <!--
                  HttpBasedServiceCredentialsToPrincipalResolver supports HttpBasedCredentials.  It supports the CAS 2.0 approach of
                  | authenticating services by SSL callback, extracting the callback URL from the Credentials and representing it as a
@@ -122,13 +128,8 @@
                     p:httpClient-ref="httpClient" />
                 
                 <!-- 通过 LDAP Bind 来检查用户的密码 -->
-                <bean class="org.jasig.cas.adaptors.ldap.FastBindLdapAuthenticationHandler" >
-                    <property name="filter" value="employeeNumber=%u,ou=people,dc=bit,dc=edu,dc=cn" />
-                    <property name="contextSource" ref="contextSource" />
-                </bean>
-
                 <bean class="org.jasig.cas.adaptors.ldap.BindLdapAuthenticationHandler" >
-                    <property name="filter" value="mail=%u" />
+                    <property name="filter" value="(|(employeeNumber=%u)(mail=%u))" />
                     <property name="searchBase" value="ou=people,dc=bit,dc=edu,dc=cn" />
                     <property name="contextSource" ref="contextSource" />
                 </bean>
