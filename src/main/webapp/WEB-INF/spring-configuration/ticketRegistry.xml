@@ -15,7 +15,8 @@
     <bean id="ticketRegistry" class="org.jasig.cas.ticket.registry.MemCacheTicketRegistry">
         <constructor-arg index="0">
             <list>
-                <value>127.0.0.1:11211</value>
+                <value>ldap.bit.edu.cn:11211</value>
+                <value>ldap2.bit.edu.cn:11211</value>
             </list>
         </constructor-arg>
         <constructor-arg index="1" type="int" value="86400" />
