@@ -94,7 +94,9 @@
           <div id="column2">
             <div id="description"><img src="images/secrecy-icon.png" alt="图标" style="float: right"/>
               <h2>2010级本科生用户名密码</h2>
-                <p>2010级本科生用户名为学号，初始密码为身份证号后六位，其中字母x均为小写。若您登记的个人信息中没有身份证号，则密码为八位班号。</p>
+                <p>2010级本科生用户名为学号，初始密码为身份证号后六位，其中字母均为小写。若您登记的个人信息中没有身份证号，则密码为八位班号。</p>
+              <h2>研究生用户名密码</h2>
+                <p>研究生用户名为学号，初始密码为身份证件号后六位，其中字母均为小写。</p>
 	        </div>
           </div>
 <jsp:directive.include file="includes/bottom.jsp" />
