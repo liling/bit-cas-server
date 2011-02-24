@@ -183,6 +183,8 @@
             <map>
                 <entry key="cn" value="Name"/>
                 <entry key="employeeType" value="Status"/>
+                <entry key="mail" value="Email"/>
+                <entry key="mobile" value="Mobile"/>
             </map>
         </property>
     </bean>
