@@ -68,7 +68,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>3.5.0-CR-2</version>
+            <version>3.5.1-Final</version>
         </dependency>
 
         <dependency>
@@ -76,10 +76,24 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.13</version>
         </dependency>
+
+        <!-- 添加版本依赖，防止老版本被打包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId> 
+            <artifactId>commons-collections</artifactId> 
+            <version>3.2.1</version> 
+        </dependency>
+
     </dependencies>
     
     <properties>
-        <cas.version>3.4.5</cas.version>
+        <cas.version>3.4.6</cas.version>
     </properties>
     
     <repositories>
