@@ -204,8 +204,7 @@
 		p:centralAuthenticationService-ref="centralAuthenticationService"
 		p:logoutView="casLogoutView"
 		p:warnCookieGenerator-ref="warnCookieGenerator"
-		p:ticketGrantingTicketCookieGenerator-ref="ticketGrantingTicketCookieGenerator"
-		p:followServiceRedirects="true" />
+		p:ticketGrantingTicketCookieGenerator-ref="ticketGrantingTicketCookieGenerator" />
 	
 	<bean id="initialFlowSetupAction" class="org.jasig.cas.web.flow.InitialFlowSetupAction"
 		p:argumentExtractors-ref="argumentExtractors"
@@ -219,7 +218,7 @@
 	<bean id="generateServiceTicketAction" class="org.jasig.cas.web.flow.GenerateServiceTicketAction"
 		p:centralAuthenticationService-ref="centralAuthenticationService" />
 		
-	<bean id="mailMobileCheckAction" class="org.jasig.cas.web.flow.mailMobileCheckAction" />
+    <bean id="accountSafetyCheckAction" class="org.jasig.cas.web.flow.AccountSafetyCheckAction" />
 
 	<bean id="sendTicketGrantingTicketAction" class="org.jasig.cas.web.flow.SendTicketGrantingTicketAction"
 		p:centralAuthenticationService-ref="centralAuthenticationService"
