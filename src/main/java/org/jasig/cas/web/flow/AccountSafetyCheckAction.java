@@ -17,6 +17,9 @@ import org.springframework.webflow.action.AbstractAction;
 import org.springframework.webflow.execution.Event;
 import org.springframework.webflow.execution.RequestContext;
 
+/**
+ * 检查用户是否设定了密保邮箱和密保手机，若没有，则返回 unsafe，否则返回 safe
+ */
 public class AccountSafetyCheckAction extends AbstractAction {
 	
 	private SimpleJdbcTemplate jdbcTemplate;
@@ -24,6 +27,7 @@ public class AccountSafetyCheckAction extends AbstractAction {
 	private TicketRegistry ticketRegistry;
 	
 	protected Principal getPrincipal(RequestContext context) {
+        // 从TGT中获取用户名
 		String tgtid = WebUtils.getTicketGrantingTicketId(context);
 		TicketGrantingTicket tgt = (TicketGrantingTicket) ticketRegistry.getTicket(tgtid);
 		return tgt.getAuthentication().getPrincipal();
@@ -40,22 +44,19 @@ public class AccountSafetyCheckAction extends AbstractAction {
 		try {
 			Map<String,Object> row = jdbcTemplate.queryForMap(
 				"SELECT * FROM pf_users WHERE username=?", principal.getId());
-			if (row != null) {
-				context.getFlowScope().put("hasSafeMail", new Boolean(
-						row.get("mail") != null && 
-						((String) row.get("mail")).length() > 0));
-				context.getFlowScope().put("hasSafeMobile", new Boolean(
-						row.get("mobile") != null && 
-						((String) row.get("mobile")).length() > 0));
-				if (!context.getFlowScope().getBoolean("hasSafeMail") ||
-					!context.getFlowScope().getBoolean("hasSafeMobile"))
-				{
-					rst = "unsafe";
-				}
-			} else {
-				rst = "unsafe";
-			}
+            context.getFlowScope().put("hasSafeMail", new Boolean(
+                    row.get("mail") != null && 
+                    ((String) row.get("mail")).length() > 0));
+            context.getFlowScope().put("hasSafeMobile", new Boolean(
+                    row.get("mobile") != null && 
+                    ((String) row.get("mobile")).length() > 0));
+            if (!context.getFlowScope().getBoolean("hasSafeMail") ||
+                !context.getFlowScope().getBoolean("hasSafeMobile"))
+            {
+                rst = "unsafe";
+            }
 		} catch (EmptyResultDataAccessException e) {
+            // 如果未找到记录，则意味着用户肯定没有设置过手机或邮箱
 			rst = "unsafe";
 		}
 		return result(rst);
