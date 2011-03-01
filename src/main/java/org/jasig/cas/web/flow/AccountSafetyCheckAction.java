@@ -36,7 +36,7 @@ public class AccountSafetyCheckAction extends AbstractAction {
 		String rst = "safe";
 		
 		Principal principal = this.getPrincipal(context);
-		System.out.println("Username is " + principal.getId());
+		//System.out.println("===========================Username is " + principal.getId());
 		try {
 			Map<String,Object> row = jdbcTemplate.queryForMap(
 				"SELECT * FROM pf_users WHERE username=?", principal.getId());
