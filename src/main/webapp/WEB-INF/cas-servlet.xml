@@ -218,7 +218,9 @@
 	<bean id="generateServiceTicketAction" class="org.jasig.cas.web.flow.GenerateServiceTicketAction"
 		p:centralAuthenticationService-ref="centralAuthenticationService" />
 		
-    <bean id="accountSafetyCheckAction" class="org.jasig.cas.web.flow.AccountSafetyCheckAction" />
+    <bean id="accountSafetyCheckAction" class="org.jasig.cas.web.flow.AccountSafetyCheckAction"
+        p:dataSource-ref="dataSource"
+        p:ticketRegistry-ref="ticketRegistry" />
 
 	<bean id="sendTicketGrantingTicketAction" class="org.jasig.cas.web.flow.SendTicketGrantingTicketAction"
 		p:centralAuthenticationService-ref="centralAuthenticationService"
