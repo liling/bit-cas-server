@@ -88,3 +88,11 @@ body {
 input {
   font-size: 14px;
 }
+
+.account-unsafe-buttons, .account-unsafe-skip-message {
+  text-align: center;
+}
+
+.account-unsafe-buttons a {
+  margin: 20px;
+}

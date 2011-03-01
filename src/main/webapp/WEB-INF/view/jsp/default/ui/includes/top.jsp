@@ -22,10 +22,12 @@
            <c:otherwise>
                 <link type="text/css" rel="stylesheet" href="<c:url value="/css/cas.css" />" />
                 <link type="text/css" rel="stylesheet" href="<c:url value="/css/local-cas.css" />" />
+                <link type="text/css" rel="stylesheet" href="<c:url value="/css/largebutton.css" />" />
            </c:otherwise>
         </c:choose>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <script type="text/javascript" src="<c:url value="/js/jquery.min.js" />"></script>
+        <script type="text/javascript" src="<c:url value="/js/jquery.cookie.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/jquery-ui.min.js" />"></script>
         <script type="text/javascript" src="<c:url value="/js/cas.js" />"></script>
 	    <link rel="icon" href="<c:url value="/favicon.ico" />" type="image/x-icon" />
