@@ -3,7 +3,7 @@
 <div class="info"><p class="account-unsafe-warning"><spring:message code="account.unsafe.message" /></p></div>
 <div class="account-unsafe-buttons">
     <c:if test="${!hasSafeMail}">
-        <a class="set_cookie largebutton" href="https://login.bit.edu.cn/profile/mail_activates/setmail" rel="external"><span><spring:message code="setup.safe.email.message" /></span></a>
+        <a class="set_cookie largebutton" href="https://login.bit.edu.cn/profile/users/view" rel="external"><span><spring:message code="setup.safe.email.message" /></span></a>
     </c:if>
     <c:if test="${!hasSafeMobile}">
         <a class="set_cookie largebutton" href="https://login.bit.edu.cn/profile/mobile_activates/setmobile" rel="external"><span><spring:message code="setup.safe.mobile.message" /></span></a>
