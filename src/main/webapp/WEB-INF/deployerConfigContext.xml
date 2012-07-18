@@ -143,6 +143,13 @@
                 </bean>
             </list>
         </property>
+
+        <!-- 增加 Remember Me 功能 -->
+        <property name="authenticationMetaDataPopulators">
+          <list>
+             <bean class="org.jasig.cas.authentication.principal.RememberMeAuthenticationMetaDataPopulator" />
+          </list>
+        </property>
     </bean>
     
     
