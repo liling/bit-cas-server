@@ -88,3 +88,18 @@ body {
 input {
   font-size: 14px;
 }
+
+#cas #login .check {
+    display: none;
+}
+
+#cas #login .remember input {
+    height: auto;
+    left: -4px;
+    position: relative;
+}
+
+#cas #login .remember label {
+    float: none;
+    line-height: 1.8;
+}
