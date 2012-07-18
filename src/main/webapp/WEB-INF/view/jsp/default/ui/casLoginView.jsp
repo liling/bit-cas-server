@@ -1,3 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
 
     Licensed to Jasig under one or more contributor license
@@ -21,10 +26,18 @@
 
 <%@ page contentType="text/html; charset=UTF-8" %>
 <jsp:directive.include file="includes/top.jsp" />
+
+<c:if test="${not pageContext.request.secure}">
+<div id="msg" class="errors">
+    <h2>Non-secure Connection</h2>
+    <p>You are currently accessing CAS over a non-secure connection.  Single Sign On WILL NOT WORK.  In order to have single sign on work, you MUST log in over HTTPS.</p>
+</div>
+</c:if>
+
   <div id="column1">
+  <div class="box fl-panel" id="login">
 			<form:form method="post" id="fm1" cssClass="fm-v clearfix" commandName="${commandName}" htmlEscape="true">
-			    <form:errors path="*" cssClass="errors" id="status" element="div" />
-                <div class="box fl-panel" id="login">
+                  <form:errors path="*" id="msg" cssClass="errors" element="div" />
                 <!-- <spring:message code="screen.welcome.welcome" /> -->
                     <h2><spring:message code="screen.welcome.instructions" /></h2>
                     <div class="row fl-controls-left">
@@ -50,30 +63,35 @@
 						<spring:message code="screen.welcome.label.password.accesskey" var="passwordAccessKey" />
 						<form:password cssClass="required" cssErrorClass="error" id="password" size="25" tabindex="2" path="password"  accesskey="${passwordAccessKey}" htmlEscape="true" autocomplete="off" />
                     </div>
+                    <div class="row remember">
+                        <input type="checkbox" name="rememberMe" id="rememberMe" value="true" tabindex="3"/>
+                        <label for="rememberMe"><spring:message code="screen.welcome.label.remember" /></label>
+                    </div>
                     <div class="row check">
-                        <input id="warn" name="warn" value="true" tabindex="3" accesskey="<spring:message code="screen.welcome.label.warn.accesskey" />" type="checkbox" />
+                        <input id="warn" name="warn" value="true" tabindex="4" accesskey="<spring:message code="screen.welcome.label.warn.accesskey" />" type="checkbox" />
                         <label for="warn"><spring:message code="screen.welcome.label.warn" /></label>
                     </div>
                     <div class="row btn-row">
-						<input type="hidden" name="lt" value="${flowExecutionKey}" />
+						<input type="hidden" name="lt" value="${loginTicket}" />
+						<input type="hidden" name="execution" value="${flowExecutionKey}" />
 						<input type="hidden" name="_eventId" value="submit" />
 
                         <input class="btn-submit" name="submit" accesskey="l" value="<spring:message code="screen.welcome.button.login" />" tabindex="4" type="submit" />
                         <input class="btn-reset" name="reset" accesskey="c" value="<spring:message code="screen.welcome.button.clear" />" tabindex="5" type="reset" />
                         <a href="https://login.bit.edu.cn/profile/passwords/recovery"><spring:message code="screen.welcome.button.reset.password" /></a>
                     </div>
-                </div>
             </form:form>
-
+          </div>
             <div id="sidebar">
                 <p class="fl-panel fl-note fl-bevel-white fl-font-size-80"><spring:message code="screen.welcome.security" /></p>
                 <div id="list-languages" class="fl-panel">
                 <%final String queryString = request.getQueryString() == null ? "" : request.getQueryString().replaceAll("&locale=([A-Za-z][A-Za-z]_)?[A-Za-z][A-Za-z]|^locale=([A-Za-z][A-Za-z]_)?[A-Za-z][A-Za-z]", "");%>
 					<c:set var='query' value='<%=queryString%>' />
+                    <c:set var="xquery" value="${fn:escapeXml(query)}" />
                   <h3>Languages:</h3>
                   <c:choose>
                      <c:when test="${not empty requestScope['isMobile'] and not empty mobileCss}">
-                        <form method="get" action="login?${query}">
+                        <form method="get" action="login?${xquery}">
                            <select name="locale">
                                <option value="zh_CN">简体中文</option>
                                <option value="en">English</option>
@@ -82,8 +100,9 @@
                         </form>
                      </c:when>
                      <c:otherwise>
-                        <c:set var="loginUrl" value="login?${query}${not empty query ? '&' : ''}locale=" />
-						<ul><li class="first"><a href="login?${query}${not empty query ? '&' : ''}locale=zh_CN">简体中文</a></li
+                        <c:set var="loginUrl" value="login?${xquery}${not empty xquery ? '&' : ''}locale=" />
+						<ul
+							><li class="first"><a href="${loginUrl}zh_CN">简体中文</a></li
 							><li class="last"><a href="${loginUrl}en">English</a></li
 						></ul>
                      </c:otherwise>
@@ -100,6 +119,6 @@
                 <p>2010级本科生用户名为学号，初始密码为身份证号后六位，其中字母均为小写。若您登记的个人信息中没有身份证号，则密码为八位班号。</p>
               <h2>研究生用户名密码</h2>
                 <p>研究生用户名为学号，初始密码为身份证件号后六位，其中字母均为小写。</p>
-	        </div>
+            </div>
           </div>
 <jsp:directive.include file="includes/bottom.jsp" />
