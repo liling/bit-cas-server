@@ -18,10 +18,10 @@
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:sec="http://www.springframework.org/schema/security"
        xmlns:jee="http://www.springframework.org/schema/jee"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
-                           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+                           http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd">
     
     <!-- LDAP 数据源 -->
     <bean id="contextSource" class="org.springframework.ldap.core.support.LdapContextSource">
@@ -217,6 +217,29 @@
     
     <tx:annotation-driven transaction-manager="transactionManager"/>
     
-    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/LocalMySQL" />
+    <jee:jndi-lookup id="dataSource" jndi-name="jdbc/cas" />
+
+    <bean id="auditTrailManager" class="com.github.inspektr.audit.support.Slf4jLoggingAuditTrailManager" />
+
+  <bean id="healthCheckMonitor" class="org.jasig.cas.monitor.HealthCheckMonitor">
+    <property name="monitors">
+      <list>
+        <bean class="org.jasig.cas.monitor.MemoryMonitor"
+            p:freeMemoryWarnThreshold="10" />
+        <!--
+          NOTE
+          The following ticket registries support SessionMonitor:
+            * DefaultTicketRegistry
+            * JpaTicketRegistry
+          Remove this monitor if you use an unsupported registry.
+        -->
+        <bean class="org.jasig.cas.monitor.SessionMonitor"
+            p:ticketRegistry-ref="ticketRegistry"
+            p:serviceTicketCountWarnThreshold="5000"
+            p:sessionCountWarnThreshold="100000" />
+      </list>
+    </property>
+  </bean>
+
 
 </beans>
