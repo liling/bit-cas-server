@@ -1,0 +1,4 @@
+
+可用如下命令注册 opensaml 1.1b
+
+mvn install:install-file -Dfile=opensaml-1.1b.jar -DgroupId=org.opensaml -DartifactId=opensaml -Dversion=1.1b -Dpacking=jar
