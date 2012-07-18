@@ -28,8 +28,8 @@
         <property name="pooled" value="false"/>
         <property name="urls">
             <list>
-                <value>ldaps://ldap.bit.edu.cn/</value>
-                <value>ldaps://ldap2.bit.edu.cn/</value>
+                <value>ldap://ldap.bit.edu.cn/</value>
+                <value>ldap://ldap2.bit.edu.cn/</value>
             </list>
         </property>
         <property name="baseEnvironmentProperties">
@@ -50,12 +50,12 @@
                     </key>
                     <value>2000</value>
                 </entry>
-                <entry>
+                <!--<entry>
                     <key>   
                         <value>java.naming.security.protocol</value>
                     </key>
                     <value>ssl</value>
-                </entry>
+                </entry>-->
                 <entry>
                     <key>
                         <value>java.naming.security.authentication</value>
