@@ -69,13 +69,6 @@
 
         <dependency>
            <groupId>org.jasig.cas</groupId>
-           <artifactId>cas-server-integration-memcached</artifactId>
-           <version>${cas.version}</version>
-           <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-           <groupId>org.jasig.cas</groupId>
            <artifactId>cas-server-integration-restlet</artifactId>
            <version>${cas.version}</version>
            <scope>runtime</scope>
