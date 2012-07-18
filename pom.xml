@@ -94,6 +94,12 @@
             <version>5.1.16</version>
         </dependency>
 
+         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.1.0.Final</version>
+        </dependency>
+
         <!-- 添加版本依赖，防止老版本被打包 -->
         <dependency>
             <groupId>org.springframework</groupId>
