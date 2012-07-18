@@ -22,7 +22,7 @@ body {
 #content {
   max-width: 770px;
   margin: 0 auto;
-  padding: 1em 20px;
+  padding: 0 20px;
 }
 
 #content p {
