@@ -15,6 +15,7 @@
                 <version>2.3</version>
                 <configuration>
                     <warName>cas</warName>
+                    <packagingExcludes>WEB-INF/lib/servlet-api-2.5.jar</packagingExcludes>
                 </configuration>
             </plugin>
             <plugin>
