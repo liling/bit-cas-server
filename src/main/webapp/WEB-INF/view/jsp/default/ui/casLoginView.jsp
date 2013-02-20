@@ -77,11 +77,10 @@
             <div id="sidebar">
 				<div class="sidebar-content">
               <img src="images/secrecy-icon.png" alt="图标" style="float: right"/>
-              <h2>教职员工用户名密码</h2>
-                <p>教职员工用户名为<a title="2010年及以前入校的在职员工统一在原五位工资号（不足五位的用0补齐）前添加61201。如原编号为03862，>则新编号为6120103862。
-全体离退休职工统一在其原四位工资号（不足四位的用0补齐）前添加612009。如原编号为0887，则新编号为6120090887。" href="http://10.102.20.2/upload/documents/2010/G53.pdf">十位工号</a>，初始密码为身份证件号后六位（其中字母为小写）或八位数字组成的出生日期。</p>
-              <h2>学生用户名密码</h2>
-                <p>学生用户名为学号，初始密码为身份证号后六位，其中字母均为小写。若您登记的个人信息中没有身份证号，则密码为八位班号或出生日期。</p>
+              <h2><spring:message code="bit.account.teacher.title" text="教职员工用户名密码" /></h2>
+              <p><spring:message code="bit.account.teacher.description" text="教职员工用户名为十位工号，初始密码为身份证件号后六位（其中字母为小写）或八位数字组成的出生日期。" /></p>
+              <h2><spring:message code="bit.account.student.title" text="学生用户名密码" /></h2>
+              <p><spring:message code="bit.account.student.description" text="学生用户名为学号，初始密码为身份证号后六位，其中字母均为小写。若您登记的个人信息中没有身份证号，则密码为八位班号或出生日期。" /></p>
 
                 <p class="fl-panel fl-note fl-bevel-white fl-font-size-80"><spring:message code="screen.welcome.security" /></p>
                 <div id="list-languages" class="fl-panel">
