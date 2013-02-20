@@ -73,12 +73,6 @@
     padding: 0;
 }
 
-#cas #footer {
-  font-size: 12px;
-  margin: 1em auto;
-  text-align: center;
-}
-
 #cas #login .check {
     display: none;
 }
@@ -93,3 +87,30 @@
     float: none;
     line-height: 1.8;
 }
+
+#cas #footer {
+  margin: 1em auto;
+  text-align: center;
+}
+
+#cas #footer p {
+  font-size: 12px;
+}
+
+#cas #footer div#copyright {
+    float: left;
+    margin: 1em 5px 0.5em;
+    overflow: hidden;
+}
+
+#cas #footer a#jasig {
+    background-image: url("../images/ja-sig-logo.gif");
+    clear: both;
+    display: block;
+    float: right;
+    height: 31px;
+    margin: 0 5px 0.5em;
+    position: relative;
+    width: 118px;
+}
+
