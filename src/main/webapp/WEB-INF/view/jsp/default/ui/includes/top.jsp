@@ -29,7 +29,7 @@
 <spring:theme code="mobile.custom.css.file" var="mobileCss" text="" />
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
-	    <title><spring:message code="application.title"/></title>
+	    <title><spring:message code="application.title" text="校园网单点登录服务"/></title>
         <c:if test="${not empty requestScope['isMobile'] and not empty mobileCss}">
              <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
              <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -48,6 +48,6 @@
         <div class="fl-screenNavigator-view">
             <div id="header" class="flc-screenNavigator-navbar fl-navbar fl-table">
 				<h1 id="company-name"></h1>
-                <h1 id="app-name" class="fl-table-cell"><spring:message code="application.title"/></h1>
+                <h1 id="app-name" class="fl-table-cell"><spring:message code="application.title" text="校园网单点登录服务"/></h1>
             </div>		
             <div id="content" class="fl-screenNavigator-scroll-container">
