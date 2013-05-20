@@ -38,6 +38,8 @@
              <link type="text/css" rel="stylesheet" href="<c:url value="/css/fss-mobile-${requestScope['browserType']}-layout.css" />" />
              <link type="text/css" rel="stylesheet" href="${mobileCss}" />-->
         </c:if>
+        <link href="<c:url value='/css/jquery-ui-smoothness-1.9.2.css' />" rel="stylesheet">
+        <link href="<c:url value='/keyboard/css/keyboard.css' />" rel="stylesheet">
 		<spring:theme code="standard.custom.css.file" var="customCssFile" />
         <link type="text/css" rel="stylesheet" href="<c:url value="${customCssFile}" />" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
