@@ -41,6 +41,7 @@
 		<spring:theme code="standard.custom.css.file" var="customCssFile" />
         <link type="text/css" rel="stylesheet" href="<c:url value="${customCssFile}" />" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	    <link rel="icon" href="<c:url value="/favicon.ico" />" type="image/x-icon" />
 	</head>
 	<body id="cas" class="fl-theme-iphone">
