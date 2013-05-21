@@ -7,6 +7,7 @@
                     <a id="jasig" href="http://www.jasig.org" title="Powered by Jasig CAS <%=org.jasig.cas.CasVersion.getVersion()%>"></a>
                     <div id="copyright">
                         <p><a href="http://nsc.bit.edu.cn"><spring:message code="bit.nsc.title" text="北京理工大学网络服务中心" /></a> <spring:message code="bit.nsc.address" text="地址：信息中心三层 七号教学楼五层" /></p>
+                        <p>如有疑问，请致电 68914830</p>
                     </div>
                 </div>
 
