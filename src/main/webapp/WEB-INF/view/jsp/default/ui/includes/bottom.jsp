@@ -14,11 +14,9 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src='<c:url value="/js/jquery-1.9.1.min.js" />'></script>
-        <script type="text/javascript" src='<c:url value="/js/jquery-ui-1.9.2.min.js" />'></script>
-        <script type="text/javascript" src='<c:url value="/keyboard/js/jquery.keyboard.min.js" />'></script>
+        <script type="text/javascript" src='<c:url value="/js/jquery-1.4.2.min.js" />'></script>
+        <script type="text/javascript" src='<c:url value="/js/jquery-ui-1.8.5.min.js" />'></script>
         <script type="text/javascript" src='<c:url value="/js/cas.js" />'></script>
-        <script type="text/javascript" src='<c:url value="/js/cas-keyboard.js" />'></script>
     </body>
 </html>
 

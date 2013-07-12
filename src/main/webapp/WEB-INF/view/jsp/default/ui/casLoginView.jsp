@@ -42,8 +42,7 @@
 
 						<c:if test="${empty sessionScope.openIdLocalId}">
 						<spring:message code="screen.welcome.label.netid.accesskey" var="userNameAccessKey" />
-						<form:input cssClass="required qwerty ui-keyboard-input ui-widget-content ui-corner-all" cssErrorClass="error" id="username" size="25" tabindex="1" accesskey="${userNameAccessKey}" path="username" autocomplete="false" htmlEscape="true" />
-                        <img id="username-keyboard" class="keyboard" title="Show Keyboard" src="<c:url value='/images/keyboard.png' />" width="36">
+						<form:input cssClass="required" cssErrorClass="error" id="username" size="25" tabindex="1" accesskey="${userNameAccessKey}" path="username" autocomplete="false" htmlEscape="true" />
 						</c:if>
                     </div>
                     <div class="row fl-controls-left">
@@ -55,8 +54,7 @@
 						http://www.geocities.com/technofundo/tech/web/ie_autocomplete.html
 						--%>
 						<spring:message code="screen.welcome.label.password.accesskey" var="passwordAccessKey" />
-						<form:password cssClass="required qwerty ui-keyboard-input ui-widget-content ui-corner-all" cssErrorClass="error" id="password" size="25" tabindex="2" path="password"  accesskey="${passwordAccessKey}" htmlEscape="true" autocomplete="off" />
-                        <img id="password-keyboard" class="keyboard" title="Show Keyboard" src="<c:url value='/images/keyboard.png' />" width="36">
+						<form:password cssClass="required" cssErrorClass="error" id="password" size="25" tabindex="2" path="password"  accesskey="${passwordAccessKey}" htmlEscape="true" autocomplete="off" />
                     </div>
                     <div class="row remember">
                         <input type="checkbox" name="rememberMe" id="rememberMe" value="true" tabindex="3"/>
